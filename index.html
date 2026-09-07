@@ -3,116 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Aprendizaje | Mi Perfil Profesional</title>
-    <!-- Aquí enlazaremos el archivo CSS más adelante -->
+    <title>Portafolio SPA | Ejercicios y Proyectos</title>
 </head>
 <body>
 
-    <!-- Menú de Navegación -->
-    <header>
+    <!-- Menú de Navegación Centrado -->
+    <header style="text-align: center; padding: 20px 0;">
         <nav>
-            <ul style="display: flex; gap: 15px; list-style: none;">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#curso">Ruta de Estudio</a></li>
-                <li><a href="#ejercicios">Tareas y Prácticas</a></li>
+            <ul style="display: flex; justify-content: center; gap: 30px; list-style: none; padding: 0; margin: 0;">
+                <li><a href="#ejercicios">Ejercicios</a></li>
+                <li><a href="#tareas">Tareas</a></li>
+                <li><a href="#certificados">Certificados</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#certificados">Certificaciones</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <!-- Sección Hero / Introducción -->
-        <section id="inicio">
-            <h1>Progreso y Documentación Continua</h1>
-            <p>Espacio centralizado para gestionar el avance del curso, scripts de automatización, despliegues y apuntes.</p>
-        </section>
+    <main style="padding: 0 20px; max-width: 1200px; margin: 0 auto;">
 
-        <hr>
-
-        <!-- Sección de Seguimiento del Curso -->
-        <section id="curso">
-            <h2>Módulos del Curso</h2>
-            <div class="modulo-container">
-                <article class="modulo">
-                    <h3>Módulo 1: Fundamentos y Arquitectura</h3>
-                    <p>Estado: <span>En progreso</span></p>
-                    <progress value="50" max="100">50%</progress>
+        <!-- 1. SECCIÓN DE EJERCICIOS -->
+        <section id="ejercicios" style="margin-bottom: 60px;">
+            <h2>Ejercicios</h2>
+            <p>Prácticas cortas y despliegues de prueba.</p>
+            
+            <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <!-- Recuadro clicable -->
+                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
+                    <h3>Scripts en Bash (Linux)</h3>
+                    <p>Automatización de permisos y gestión de directorios en servidor.</p>
+                    <button>Ver Preview</button>
                 </article>
-                <article class="modulo">
-                    <h3>Módulo 2: Despliegue y Configuración</h3>
-                    <p>Estado: <span>Pendiente</span></p>
-                    <progress value="0" max="100">0%</progress>
+
+                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
+                    <h3>Consultas SQL</h3>
+                    <p>Validación y reportes de bases de datos relacionales.</p>
+                    <button>Ver Preview</button>
                 </article>
             </div>
         </section>
 
-        <hr>
+        <hr style="margin: 40px 0;">
 
-        <!-- Sección de Tareas y Ejercicios -->
-        <section id="ejercicios">
-            <h2>Ejercicios Prácticos</h2>
-            <ul>
-                <li>
-                    <strong>Práctica de Terminal y Bash:</strong> Configuración de entornos y manejo de permisos. 
-                    <a href="#">[Ver apunte/entregable]</a>
-                </li>
-                <li>
-                    <strong>Consultas y Bases de Datos:</strong> Extracción y validación de datos. 
-                    <a href="#">[Ver apunte/entregable]</a>
-                </li>
-            </ul>
-        </section>
+        <!-- 2. SECCIÓN DE TAREAS -->
+        <section id="tareas" style="margin-bottom: 60px;">
+            <h2>Tareas</h2>
+            <p>Entregables y documentación estructurada.</p>
 
-        <hr>
-
-        <!-- Sección de Proyectos -->
-        <section id="proyectos">
-            <h2>Proyectos Destacados</h2>
-            <div class="grid-proyectos">
-                <article class="proyecto">
-                    <h3>Infraestructura como Código (IaC)</h3>
-                    <p>Implementación utilizando plantillas para aprovisionar recursos de manera automatizada y colaborativa.</p>
-                    <a href="#" target="_blank" rel="noopener noreferrer">Ver repositorio de código</a>
+            <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
+                    <h3>Configuración de Máquinas Virtuales</h3>
+                    <p>Integración de carpetas compartidas y guest additions en Debian/Rocky Linux.</p>
+                    <button>Ver Detalles</button>
                 </article>
-                <article class="proyecto">
-                    <h3>Análisis y Visualización de Datos</h3>
-                    <p>Procesamiento de archivos CSV masivos y creación de tableros interactivos.</p>
-                    <a href="#" target="_blank" rel="noopener noreferrer">Ver repositorio de código</a>
+
+                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
+                    <h3>Gestión de Repositorios</h3>
+                    <p>Estrategia de ramas (branches) y Pull Requests mediante PowerShell.</p>
+                    <button>Ver Detalles</button>
                 </article>
             </div>
         </section>
 
-        <hr>
+        <hr style="margin: 40px 0;">
 
-        <!-- Sección de Certificados -->
-        <section id="certificados">
-            <h2>Certificaciones e Insignias</h2>
-            <div class="galeria-certificados">
-                <article class="certificado">
-                    <!-- <img src="ruta-a-tu-imagen.jpg" alt="Insignia Cloud"> -->
-                    <h3>Credencial Practitioner / Foundations</h3>
-                    <p>Emitido el: [Fecha]</p>
-                    <a href="#">Ver credencial verificada</a>
+        <!-- 3. SECCIÓN DE CERTIFICADOS (Galería de imágenes) -->
+        <section id="certificados" style="margin-bottom: 60px;">
+            <h2>Certificaciones</h2>
+            <p>Insignias y comprobantes de finalización.</p>
+
+            <div class="galeria-imagenes" style="display: flex; gap: 30px; flex-wrap: wrap; text-align: center;">
+                <!-- Ítem de Galería 1 -->
+                <article class="item-galeria">
+                    <div style="width: 250px; height: 180px; background-color: #eee; border: 1px dashed #999; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                        <span>[Imagen de Certificado PDF/PNG]</span>
+                    </div>
+                    <h4>AWS Certified Cloud Practitioner</h4>
+                    <a href="enlace-al-pdf-o-credly.com" target="_blank">Ver certificado oficial</a>
                 </article>
-                <article class="certificado">
-                    <h3>Credencial AI / Machine Learning</h3>
-                    <p>Emitido el: [Fecha]</p>
-                    <a href="#">Ver credencial verificada</a>
+
+                <!-- Ítem de Galería 2 -->
+                <article class="item-galeria">
+                    <div style="width: 250px; height: 180px; background-color: #eee; border: 1px dashed #999; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                        <span>[Imagen de Certificado PDF/PNG]</span>
+                    </div>
+                    <h4>AWS Certified AI Practitioner</h4>
+                    <a href="enlace-al-pdf-o-credly.com" target="_blank">Ver certificado oficial</a>
                 </article>
-                 <article class="certificado">
-                    <h3>Certificación Associate (En preparación)</h3>
-                    <p>Examen programado para: [Fecha]</p>
+            </div>
+        </section>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- 4. SECCIÓN DE PROYECTOS -->
+        <section id="proyectos" style="margin-bottom: 60px;">
+            <h2>Proyectos</h2>
+            <p>Implementaciones completas y arquitecturas.</p>
+
+            <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
+                    <h3>Infraestructura como Código</h3>
+                    <p>Plantillas de CloudFormation para el aprovisionamiento de entornos colaborativos en la nube.</p>
+                    <button>Ver Proyecto</button>
+                </article>
+
+                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
+                    <h3>Procesamiento de Datos</h3>
+                    <p>Limpieza y visualización interactiva de grandes volúmenes de datos CSV usando Power BI.</p>
+                    <button>Ver Proyecto</button>
                 </article>
             </div>
         </section>
 
     </main>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2026 - Portafolio y Dashboard de Aprendizaje. Desarrollado paso a paso.</p>
-    </footer>
+    <!-- VENTANA EMERGENTE (Modal nativo de HTML5 para los Previews) -->
+    <!-- Este bloque permanece oculto hasta que se active con JavaScript más adelante -->
+    <dialog id="modal-preview" style="padding: 30px; border-radius: 8px; border: 1px solid #aaa; max-width: 600px;">
+        <h3 id="modal-titulo">Título del Preview</h3>
+        <p id="modal-descripcion">Aquí se cargará dinámicamente el contenido de la tarea, ejercicio o proyecto, o un iframe con el documento.</p>
+        <button formmethod="dialog" onclick="document.getElementById('modal-preview').close()">Cerrar Preview</button>
+    </dialog>
 
 </body>
 </html>
