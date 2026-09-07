@@ -1,1 +1,118 @@
-<p>Hola Mundo<p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Aprendizaje | Mi Perfil Profesional</title>
+    <!-- Aquí enlazaremos el archivo CSS más adelante -->
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <header>
+        <nav>
+            <ul style="display: flex; gap: 15px; list-style: none;">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#curso">Ruta de Estudio</a></li>
+                <li><a href="#ejercicios">Tareas y Prácticas</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#certificados">Certificaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Hero / Introducción -->
+        <section id="inicio">
+            <h1>Progreso y Documentación Continua</h1>
+            <p>Espacio centralizado para gestionar el avance del curso, scripts de automatización, despliegues y apuntes.</p>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Seguimiento del Curso -->
+        <section id="curso">
+            <h2>Módulos del Curso</h2>
+            <div class="modulo-container">
+                <article class="modulo">
+                    <h3>Módulo 1: Fundamentos y Arquitectura</h3>
+                    <p>Estado: <span>En progreso</span></p>
+                    <progress value="50" max="100">50%</progress>
+                </article>
+                <article class="modulo">
+                    <h3>Módulo 2: Despliegue y Configuración</h3>
+                    <p>Estado: <span>Pendiente</span></p>
+                    <progress value="0" max="100">0%</progress>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Tareas y Ejercicios -->
+        <section id="ejercicios">
+            <h2>Ejercicios Prácticos</h2>
+            <ul>
+                <li>
+                    <strong>Práctica de Terminal y Bash:</strong> Configuración de entornos y manejo de permisos. 
+                    <a href="#">[Ver apunte/entregable]</a>
+                </li>
+                <li>
+                    <strong>Consultas y Bases de Datos:</strong> Extracción y validación de datos. 
+                    <a href="#">[Ver apunte/entregable]</a>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Proyectos -->
+        <section id="proyectos">
+            <h2>Proyectos Destacados</h2>
+            <div class="grid-proyectos">
+                <article class="proyecto">
+                    <h3>Infraestructura como Código (IaC)</h3>
+                    <p>Implementación utilizando plantillas para aprovisionar recursos de manera automatizada y colaborativa.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Ver repositorio de código</a>
+                </article>
+                <article class="proyecto">
+                    <h3>Análisis y Visualización de Datos</h3>
+                    <p>Procesamiento de archivos CSV masivos y creación de tableros interactivos.</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Ver repositorio de código</a>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Certificados -->
+        <section id="certificados">
+            <h2>Certificaciones e Insignias</h2>
+            <div class="galeria-certificados">
+                <article class="certificado">
+                    <!-- <img src="ruta-a-tu-imagen.jpg" alt="Insignia Cloud"> -->
+                    <h3>Credencial Practitioner / Foundations</h3>
+                    <p>Emitido el: [Fecha]</p>
+                    <a href="#">Ver credencial verificada</a>
+                </article>
+                <article class="certificado">
+                    <h3>Credencial AI / Machine Learning</h3>
+                    <p>Emitido el: [Fecha]</p>
+                    <a href="#">Ver credencial verificada</a>
+                </article>
+                 <article class="certificado">
+                    <h3>Certificación Associate (En preparación)</h3>
+                    <p>Examen programado para: [Fecha]</p>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 - Portafolio y Dashboard de Aprendizaje. Desarrollado paso a paso.</p>
+    </footer>
+
+</body>
+</html>
