@@ -5,7 +5,7 @@ Para poder instalar de forma correcta lo que necesitamos tendremos que iniciar a
 estamos en Windows) en la computadora para ejecutar los comandos requeridos para ir instalando los distintos 
 softwares necesarios. Se recomienda abrir PowerShell en modo administrador, empecemos.
 
-## Instalar WSL (Windows Subsystem for Linux) y Ubuntu
+## 1. Instalar WSL (Windows Subsystem for Linux) y Ubuntu
 Siguiendo las instrucciones que nos brinda la documentacion de Microsoft, ejecutaremos los siguientes comandos en
 orden para poder instalar WSL (Windows Subsystem for Linux) y Ubuntu. Con este primer comando vamos a instalar WSL, ademas de activar todas las funciones 
 necesarias para ejecutar WSL e instalar la distribucion de Linux llamada Ubuntu.
@@ -17,7 +17,7 @@ wsl --install
 Nota: Cabe recalcar que la distribucion de Linux que se instala por defecto es Ubuntu, sin embargo, existe la posibilidad de instalar otra 
 distribucion de Linux ejecutando el siguiente comando:
 
-### Instalar otra distribucion de Linux
+### 1.1 Instalar otra distribucion de Linux
 
 ```bash
 wsl.exe --install -d [Distro]
@@ -26,7 +26,7 @@ wsl.exe --install -d [Distro]
 Tendremos que especificar la distribucion de Linux que queremos instalar. Por otro lado, si queremos ver una lista de 
 distribuciones disponibles de Linux para descargar desde la tienda podemos ejecutar el siguiente comando:
 
-### Ver la lista de distribuciones de Linux disponibles
+### 1.2 Ver la lista de distribuciones de Linux disponibles
 
 ```bash
 wsl.exe --list --online
@@ -54,12 +54,12 @@ Con esto nos aseguramos que nuestro sistema este al dia y evitamos conflictos al
 
 ---
 
-## Comandos para instalar y configurar Docker Engine
+## 2. Comandos para instalar y configurar Docker Engine
 Siguiendo la documentacion de dockerdocs, vamos a instalar Docker Engine utilizando los comandos que se nos indican
 tal cual aparecen en la documentacion. La forma recomendada de ejecutar los comandos es ir uno por uno, sin embargo,
 tambien es posible copiar los comandos por bloques y ejecutarlos al mismo tiempo.
 
-### Primer bloque de comandos - Add Docker's official GPG key
+### 2.1 Primer bloque de comandos - Add Docker's official GPG key
 
 ```bash
 sudo apt update
@@ -69,7 +69,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-### Segundo bloque de comandos - Add the repository to Apt sources
+### 2.2 Segundo bloque de comandos - Add the repository to Apt sources
 
 ```bash
 sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
@@ -84,7 +84,7 @@ EOF
 sudo apt update
 ```
 
-### Instalar los paquetes de docker
+### 2.3 Instalar los paquetes de docker
 
 ```bash
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -93,7 +93,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 Una vez que ya tenemos todo instalado, tenemos que realizar algunas verificaciones para asegurarnos de que Docker esta
 funcionando correctamente y que la instalacion fue exitosa, para esto vamos a ejecutar los siguientes comandos:
 
-### Verificacion del estado de docker
+### 2.4 Verificacion del estado de docker
 
 ```bash
 sudo systemctl status docker
@@ -104,20 +104,19 @@ sudo systemctl status docker
 Lo que debe de mostrarnos en la terminal es que Docker esta corriendo (running), en el caso de que no sea asi, que 
 Docker se encuentre detenido, tendremos que ejecutar el siguiente comando:
 
-### Iniciar docker
+### 2.5 Iniciar docker
 
 ```bash
 sudo systemctl start docker
 ```
 
-### Correr una imagen de prueba y ejecutarla dentro de un contenedor
+### 2.6 Correr una imagen de prueba y ejecutarla dentro de un contenedor
 
 ```bash
 sudo docker run hello-world
 ```
 
 <img width="1030" height="608" alt="image" src="https://github.com/user-attachments/assets/37daf005-0200-4381-9fc0-8d8447ec020d" />
-
 
 Con el comando anterior, descargamos una imagen de prueba y la ejecutamos dentro de un contenedor. Cuando el 
 contenedor se ejecuta, muestra un mensaje de confirmacion, que en este caso sera el famoso hello-world y se cerrara el 
@@ -159,18 +158,18 @@ de usar el sudo.
 
 ---
 
-## Comandos para la instalacion y configuracion de zsh, Python, pyenv y Jupyter Notebook
+## 3. Comandos para la instalacion y configuracion de zsh, Python, pyenv y Jupyter Notebook
 Con los siguientes comandos vamos a poder instalar y configurar nuestro entorno para usar zsh, Python, pyenv y Jupyter 
 Notebook en nuestra distribucion Linux (Ubuntu en nuestro caso). Sigamos los siguientes comandos para llevar 
 acabo este cometido.
 
-### Instalar zsh
+### 3.1 Instalar zsh
 
 ```bash
 sudo apt install -y zsh
 ```
 
-### Instalar oh-my-zsh
+### 3.2 Instalar oh-my-zsh
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -178,8 +177,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 <img width="1246" height="570" alt="image" src="https://github.com/user-attachments/assets/62257b19-83c7-4547-bd1c-2138a3646c26" />
 
-
-### Instalar las dependencias necesarias 
+### 3.3 Instalar las dependencias necesarias 
 ```bash
 sudo apt install -y \
   make \
@@ -202,7 +200,7 @@ sudo apt install -y \
 
 Con el comando anterior, instalamos todas las herramientas y bibliotecas necesarias para compilar Python mediante pyenv
 
-### Clonar el proyecto pyenv
+### 3.4 Clonar el proyecto pyenv
 
 ```bash
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -210,7 +208,7 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
 <img width="1032" height="182" alt="image" src="https://github.com/user-attachments/assets/57fe4cbe-f515-4e3b-a733-bc67aacb7103" />
 
-### Comprobar que pyenv fue descargado correctamente
+### 3.5 Comprobar que pyenv fue descargado correctamente
 
 ```bash
 ls ~/.pyenv
@@ -218,7 +216,7 @@ ls ~/.pyenv
 
 <img width="1182" height="97" alt="image" src="https://github.com/user-attachments/assets/64d6d969-d745-4c04-8fdf-681e723cf899" />
 
-### Configurar pyenv para zsh y comprobar que pyenv funciona 
+### 3.6 Configurar pyenv para zsh y comprobar que pyenv funciona 
 
 ```bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
@@ -228,7 +226,7 @@ source ~/.zshrc
 pyenv --version
 ```
 
-### Consultar las versiones de python disponibles
+### 3.7 Consultar las versiones de python disponibles
 
 ```bash
 pyenv install --list | grep " 3.14"
@@ -236,11 +234,10 @@ pyenv install --list | grep " 3.14"
 
 <img width="557" height="442" alt="image" src="https://github.com/user-attachments/assets/24215801-a97f-41b6-b78c-777ec90bc639" />
 
-
 Con grep filtramos los resultados para mostrar unicamente las versiones correspondientes a Python 3.14, esto nos 
 permite comprobar que la version que queremos instalar esta disponible 
 
-### Instalar python 3.14.7
+### 3.8 Instalar python 3.14.7
 
 ```bash
 pyenv install 3.14.7
@@ -248,7 +245,7 @@ pyenv install 3.14.7
 
 <img width="1088" height="458" alt="image" src="https://github.com/user-attachments/assets/6c5d1bfc-bcb6-4b28-92ba-2dde56d2a813" />
 
-### Comprobar las versiones administradas por pyenv
+### 3.9 Comprobar las versiones administradas por pyenv
 
 ```bash
 pyenv versions
@@ -256,45 +253,46 @@ pyenv versions
 
 Este comando nos va a mostrar las versiones de Python que pyenv tiene instaladas.
 
-### Seleccionar Python 3.14.7 como la version global 
+### 3.10 Seleccionar Python 3.14.7 como la version global 
 
 ```bash
 pyenv global 3.14.7
 ```
 
-### Actualizar los ejecutables de pyenv
+### 3.11 Actualizar los ejecutables de pyenv
 
 ```bash
 pyenv rehash
 ```
 
-### Verificar la version de Python
+### 3.12 Verificar la version de Python
 
 ```bash
 python --version
 ```
 
-### Creamos nuestro WorkSpace
+### 4. Creamos nuestro WorkSpace
 
 ```bash
 mkdir -p ~/jupyter
 ```
+
 Estamos creando un directorio llamado jupyter dentro de nuestro directorio personal. Con la opcion -p nos permite 
 crear los directorios necesarios si todavia no existen y con esto evitamos generar un error si el directorio ya existe
 
-### Entramos al directorio
+### 4.1 Entramos al directorio
 
 ```bash
 cd ~/jupyter
 ```
 
-### Corroboramos la version de python
+### 4.2 Corroboramos la version de python
 
 ```bash
 python --version
 ```
 
-### Creamos un entorno virtual
+### 4.3 Creamos un entorno virtual
 
 ```bash
 python -m venv .venv
@@ -303,13 +301,13 @@ python -m venv .venv
 Estamos creando un entorno virtual de Python llamado .venv dentro de nuestro directorio actual. El objetivo principales
 de un entorno virtual es aislar las bibliotecas y dependencias del proyecto de la instalacion global de Python.
 
-### Activamos el entorno virtual
+### 4.4 Activamos el entorno virtual
 
 ```bash
 source .venv/bin/activate
 ```
 
-### Actualizamos pip 
+### 4.5 Actualizamos pip 
 
 ```bash
 python -m pip install --upgrade pip
@@ -319,7 +317,7 @@ Estamos actualizando pip, que es el administrador de paquetes de Python, cabe me
 -m pip en lugar de solo usar pip para asegurarnos de que pip pertenece al Python que estamos ejecutando actualmente,
 en este caso, el Python del entorno virtual.
 
-### Instalacion de Jupyter Notebook
+### 4.6 Instalacion de Jupyter Notebook
 
 ```bash
 python -m pip install notebook
@@ -327,7 +325,7 @@ python -m pip install notebook
 
 Jupyter Notebook nos proporciona la interfaz que permite crear y ejecutar notebooks, normalmente con archivos .ipynb
 
-### Instalacion de ipykernel 
+### 4.7 Instalacion de ipykernel 
 
 ```bash
 python -m pip install ipykernel
@@ -336,7 +334,7 @@ python -m pip install ipykernel
 ipykernel nos permite utilizar el interprete de Python como un kernel de Jupyter. Recordemos que el kernel es el 
 componente que realmente ejecuta el codigo Python que escribimos dentro de un Notebook.
 
-### Iniciamos Jupyter Notebook
+### 4.8 Iniciamos Jupyter Notebook
 
 ```bash
 jupyter notebook
