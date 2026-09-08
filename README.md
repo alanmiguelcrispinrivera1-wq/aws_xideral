@@ -361,6 +361,8 @@ normal, o sea, que no estemos en la cuenta root. Con esto podremos ejecutar el c
 
 Con esto ya iniciamos oficialmente el servidor de Jupyter Notebook 
 
+<img width="1917" height="951" alt="image" src="https://github.com/user-attachments/assets/5bfed28e-332c-4764-871c-521c95deef21" />
+
 Para cerrar Jupyter Notebook y que se nos devuelva el control de la terminal, basta con presionar la combinacion de teclas Ctrl + C
 
 
