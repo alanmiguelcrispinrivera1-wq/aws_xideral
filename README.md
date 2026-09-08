@@ -1,29 +1,29 @@
-# Tarea 1 - Documentacion: Preparando el entorno de trabajo en nuestra computadora 
+# Tarea 1 - Documentación: Preparando el entorno de trabajo en nuestra computadora 
 
-Llevaremos acabo la instalacion de todo el software requerido para el curso de AWS Data.
+Llevaremos a cabo la instalación de todo el software requerido para el curso de AWS Data.
 Para poder instalar de forma correcta lo que necesitamos tendremos que iniciar abriendo una terminal (PowerShell si
 estamos en Windows) en la computadora para ejecutar los comandos requeridos para ir instalando los distintos 
 softwares necesarios. Se recomienda abrir PowerShell en modo administrador, empecemos.
 
 ## 1. Instalar WSL (Windows Subsystem for Linux) y Ubuntu
-Siguiendo las instrucciones que nos brinda la documentacion de Microsoft, ejecutaremos los siguientes comandos en
-orden para poder instalar WSL (Windows Subsystem for Linux) y Ubuntu. Con este primer comando vamos a instalar WSL, ademas de activar todas las funciones 
-necesarias para ejecutar WSL e instalar la distribucion de Linux llamada Ubuntu.
+Siguiendo las instrucciones que nos brinda la documentación de Microsoft, ejecutaremos los siguientes comandos en
+orden para poder instalar WSL (Windows Subsystem for Linux) y Ubuntu. Con este primer comando vamos a instalar WSL, además de activar todas las funciones 
+necesarias para ejecutar WSL e instalar la distribución de Linux llamada Ubuntu.
 
 ```bash
 wsl --install
 ```
 
-Nota: Cabe recalcar que la distribucion de Linux que se instala por defecto es Ubuntu, sin embargo, existe la posibilidad de instalar otra 
-distribucion de Linux ejecutando el siguiente comando:
+Nota: Cabe recalcar que la distribución de Linux que se instala por defecto es Ubuntu, sin embargo, existe la posibilidad de instalar otra 
+distribución de Linux ejecutando el siguiente comando:
 
-### 1.1 Instalar otra distribucion de Linux
+### 1.1 Instalar otra distribución de Linux
 
 ```bash
 wsl.exe --install -d [Distro]
 ```
 
-Tendremos que especificar la distribucion de Linux que queremos instalar. Por otro lado, si queremos ver una lista de 
+Tendremos que especificar la distribución de Linux que queremos instalar. Por otro lado, si queremos ver una lista de 
 distribuciones disponibles de Linux para descargar desde la tienda podemos ejecutar el siguiente comando:
 
 ### 1.2 Ver la lista de distribuciones de Linux disponibles
@@ -33,13 +33,13 @@ wsl.exe --list --online
 ```
 
 NOTA: Recordemos que todos estos pasos los estamos realizando desde una computadora con SO Windows en nuestra 
-PoweShell, tambien es importante mencionar que la distribucion que seleccionamos fue Ubuntu, esa sera 
-nuestra distribucion de Linux de ahora en adelante.
+PowerShell, también es importante mencionar que la distribución que seleccionamos fue Ubuntu, esa será 
+nuestra distribución de Linux de ahora en adelante.
 
 Siguiendo los pasos anteriores de forma correcta, ya podremos usar WSL junto con Ubuntu desde nuestra terminal de
-Windows sin ningun problema.
+Windows sin ningún problema.
 
-Para concluir esta parte y como una buena practica ejecutaremos el siguiente comando: 
+Para concluir esta parte y como una buena práctica ejecutaremos el siguiente comando: 
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -47,17 +47,17 @@ sudo apt update && sudo apt upgrade -y
 
 El comando anterior lo debemos de ejecutar una vez que hayamos instalado WSL, este comando tiene dos funciones 
 principales muy importantes:
-+ La primera funcion es refrescar la lista de paquetes disponibles y sus versiones desde los repositorios. 
-+ La segunda funcion es instalar las versiones mas recientes de los paquetes que ya tenemos. 
-Con esto nos aseguramos que nuestro sistema este al dia y evitamos conflictos al instalar software nuevo 
-(que es justo lo que realizaremos mas adelante). 
++ La primera función es refrescar la lista de paquetes disponibles y sus versiones desde los repositorios. 
++ La segunda función es instalar las versiones más recientes de los paquetes que ya tenemos. 
+Con esto nos aseguramos de que nuestro sistema este al día y evitamos conflictos al instalar software nuevo 
+(que es justo lo que realizaremos más adelante). 
 
 ---
 
 ## 2. Comandos para instalar y configurar Docker Engine
-Siguiendo la documentacion de dockerdocs, vamos a instalar Docker Engine utilizando los comandos que se nos indican
-tal cual aparecen en la documentacion. La forma recomendada de ejecutar los comandos es ir uno por uno, sin embargo,
-tambien es posible copiar los comandos por bloques y ejecutarlos al mismo tiempo.
+Siguiendo la documentación de dockerdocs, vamos a instalar Docker Engine utilizando los comandos que se nos indican
+tal cual aparecen en la documentación. La forma recomendada de ejecutar los comandos es ir uno por uno, sin embargo,
+también es posible copiar los comandos por bloques y ejecutarlos al mismo tiempo.
 
 ### 2.1 Primer bloque de comandos - Add Docker's official GPG key
 
@@ -84,16 +84,16 @@ EOF
 sudo apt update
 ```
 
-### 2.3 Instalar los paquetes de docker
+### 2.3 Instalar los paquetes de Docker
 
 ```bash
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 Una vez que ya tenemos todo instalado, tenemos que realizar algunas verificaciones para asegurarnos de que Docker esta
-funcionando correctamente y que la instalacion fue exitosa, para esto vamos a ejecutar los siguientes comandos:
+funcionando correctamente y que la instalación fue exitosa, para esto vamos a ejecutar los siguientes comandos:
 
-### 2.4 Verificacion del estado de docker
+### 2.4 Verificación del estado de Docker
 
 ```bash
 sudo systemctl status docker
@@ -101,7 +101,7 @@ sudo systemctl status docker
 
 <img width="1172" height="332" alt="image" src="https://github.com/user-attachments/assets/4ef708e2-7638-45dd-ad5e-622af5e0ef07" />
 
-Lo que debe de mostrarnos en la terminal es que Docker esta corriendo (running), en el caso de que no sea asi, que 
+Lo que debe de mostrarnos en la terminal es que Docker está corriendo (running), en el caso de que no sea así, que 
 Docker se encuentre detenido, tendremos que ejecutar el siguiente comando:
 
 ### 2.5 Iniciar docker
@@ -119,11 +119,11 @@ sudo docker run hello-world
 <img width="1030" height="608" alt="image" src="https://github.com/user-attachments/assets/37daf005-0200-4381-9fc0-8d8447ec020d" />
 
 Con el comando anterior, descargamos una imagen de prueba y la ejecutamos dentro de un contenedor. Cuando el 
-contenedor se ejecuta, muestra un mensaje de confirmacion, que en este caso sera el famoso hello-world y se cerrara el 
-mensaje, esto nos indica que todo el proceso de instalacion que realizamos fue exitoso.
+contenedor se ejecuta, muestra un mensaje de confirmación, que en este caso será el famoso hello-world y se cerrará el 
+mensaje, esto nos indica que todo el proceso de instalación que realizamos fue exitoso.
 
-### Pasos posteriores de la instalacion de Docker Engine en nuestra distribucion de Linux
-Este es un proceso opcional que podemos realizar despues de la instalacion de Docker Engine dentro de Linux,
+### Pasos posteriores de la instalación de Docker Engine en nuestra distribución de Linux
+Este es un proceso opcional que podemos realizar después de la instalación de Docker Engine dentro de Linux,
 dicho proceso nos va a describir como configurar nuestra maquina host Linux para que funcione de mejor manera 
 con Docker. Para realizar esto tendremos que seguir los siguientes pasos ejecutando sus respectivos comandos:
 
@@ -158,9 +158,9 @@ de usar el sudo.
 
 ---
 
-## 3. Comandos para la instalacion y configuracion de zsh, Python, pyenv y Jupyter Notebook
+## 3. Comandos para la instalación y configuración de zsh, Python, pyenv y Jupyter Notebook
 Con los siguientes comandos vamos a poder instalar y configurar nuestro entorno para usar zsh, Python, pyenv y Jupyter 
-Notebook en nuestra distribucion Linux (Ubuntu en nuestro caso). Sigamos los siguientes comandos para llevar 
+Notebook en nuestra distribución Linux (Ubuntu en nuestro caso). Sigamos los siguientes comandos para llevar 
 acabo este cometido.
 
 ### 3.1 Instalar zsh
@@ -226,7 +226,7 @@ source ~/.zshrc
 pyenv --version
 ```
 
-### 3.7 Consultar las versiones de python disponibles
+### 3.7 Consultar las versiones de Python disponibles
 
 ```bash
 pyenv install --list | grep " 3.14"
@@ -234,8 +234,8 @@ pyenv install --list | grep " 3.14"
 
 <img width="557" height="442" alt="image" src="https://github.com/user-attachments/assets/24215801-a97f-41b6-b78c-777ec90bc639" />
 
-Con grep filtramos los resultados para mostrar unicamente las versiones correspondientes a Python 3.14, esto nos 
-permite comprobar que la version que queremos instalar esta disponible 
+Con grep filtramos los resultados para mostrar únicamente las versiones correspondientes a Python 3.14, esto nos 
+permite comprobar que la version que queremos instalar está disponible 
 
 ### 3.8 Instalar python 3.14.7
 
@@ -277,8 +277,8 @@ python --version
 mkdir -p ~/jupyter
 ```
 
-Estamos creando un directorio llamado jupyter dentro de nuestro directorio personal. Con la opcion -p nos permite 
-crear los directorios necesarios si todavia no existen y con esto evitamos generar un error si el directorio ya existe
+Estamos creando un directorio llamado jupyter dentro de nuestro directorio personal. Con la opción -p nos permite 
+crear los directorios necesarios si todavía no existen y con esto evitamos generar un error si el directorio ya existe
 
 ### 4.1 Entramos al directorio
 
@@ -299,7 +299,7 @@ python -m venv .venv
 ```
 
 Estamos creando un entorno virtual de Python llamado .venv dentro de nuestro directorio actual. El objetivo principales
-de un entorno virtual es aislar las bibliotecas y dependencias del proyecto de la instalacion global de Python.
+de un entorno virtual es aislar las bibliotecas y dependencias del proyecto de la instalación global de Python.
 
 ### 4.4 Activamos el entorno virtual
 
@@ -325,14 +325,14 @@ python -m pip install notebook
 
 Jupyter Notebook nos proporciona la interfaz que permite crear y ejecutar notebooks, normalmente con archivos .ipynb
 
-### 4.7 Instalacion de ipykernel 
+### 4.7 Instalación de ipykernel 
 
 ```bash
 python -m pip install ipykernel
 ```
 
-ipykernel nos permite utilizar el interprete de Python como un kernel de Jupyter. Recordemos que el kernel es el 
-componente que realmente ejecuta el codigo Python que escribimos dentro de un Notebook.
+ipykernel nos permite utilizar el intérprete de Python como un kernel de Jupyter. Recordemos que el kernel es el 
+componente que realmente ejecuta el código Python que escribimos dentro de un Notebook.
 
 ### 4.8 Iniciamos Jupyter Notebook
 
@@ -343,15 +343,15 @@ jupyter notebook
 <img width="1475" height="431" alt="image" src="https://github.com/user-attachments/assets/a9976a00-58bc-4829-af61-8acd4540a5a5" />
 
 Si te da el mensaje anterior en la consola es porque el servidor se detuvo inmediatamente, esto debido a que estamos ejecutando 
-los comandos en la terminal desde el usuario root, esto causo que Jupyter bloqueara la ejecucion por seguridad y debido a esto no se 
+los comandos en la terminal desde el usuario root, esto causo que Jupyter bloqueara la ejecución por seguridad y debido a esto no se 
 genero la url con el token de seguridad, para solucionar este problema debemos de ejecutar el siguiente comando:
 
 ```bash
 jupyter notebook --allow-root
 ```
 
-NOTA: Siempre que estemos en la cuenta root, sera necesario que usemos el comando anterior para iniciar Jupyter Notebook, de lo contraria 
-Jupyter bloqueara la ejecucion por seguridad. Si no queremos depender de este comando, bastara con que estemos dentro de una cuenta de usuario
+NOTA: Siempre que estemos en la cuenta root, será necesario que usemos el comando anterior para iniciar Jupyter Notebook, de lo contraria 
+Jupyter bloqueara la ejecución por seguridad. Si no queremos depender de este comando, bastara con que estemos dentro de una cuenta de usuario
 normal, o sea, que no estemos en la cuenta root. Con esto podremos ejecutar el comando jupyter notebook, sin requerir del comando jupyter notebook 
 --allow-root.
 
@@ -361,6 +361,4 @@ Con esto ya iniciamos oficialmente el servidor de Jupyter Notebook
 
 <img width="1917" height="951" alt="image" src="https://github.com/user-attachments/assets/5bfed28e-332c-4764-871c-521c95deef21" />
 
-Para cerrar Jupyter Notebook y que se nos devuelva el control de la terminal, basta con presionar la combinacion de teclas Ctrl + C
-
-
+Para cerrar Jupyter Notebook y que se nos devuelva el control de la terminal, basta con presionar la combinación de teclas Ctrl + C
