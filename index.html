@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio SPA | Ejercicios y Proyectos</title>
+    <title>Mi Portafolio SPA | Alan Miguel Crispin Rivera</title>
 </head>
 <body>
 
     <header style="text-align: center; padding: 20px 0;">
         <nav>
             <ul style="display: flex; justify-content: center; gap: 30px; list-style: none; padding: 0; margin: 0;">
-                <li><a href="#ejercicios">Ejercicios</a></li>
+                <li><a href="#ejercicios">Ejercicios - Problemas</a></li>
                 <li><a href="#tareas">Tareas</a></li>
                 <li><a href="#certificados">Certificados</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
@@ -21,21 +21,18 @@
     <main style="padding: 0 20px; max-width: 1200px; margin: 0 auto;">
 
         <section id="ejercicios" style="margin-bottom: 60px;">
-            <h2>Ejercicios</h2>
+            <h2>Ejercicios - Problemas</h2>
             <p>Prácticas cortas y despliegues de prueba.</p>
             
             <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Ejercicio 1</h3>
+                    <h3>Problema 1</h3>
                     <p>Pendiente.</p>
-                    <button>Ver Preview</button>
+                    <a href="problema-1.html">
+                        <button>Ver Preview</button>
+                    </a>
                 </article>
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Ejercicio 2</h3>
-                    <p>Pendiente.</p>
-                    <button>Ver Preview</button>
-                </article>
             </div>
         </section>
 
@@ -149,12 +146,6 @@
                     <p>En proceso.</p>
                     <button>Ver Proyecto</button>
                 </article>
-
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Proyecto 2</h3>
-                    <p>Pendiente.</p>
-                    <button>Ver Proyecto</button>
-                </article>
             </div>
         </section>
 
@@ -165,9 +156,6 @@
         <p id="modal-descripcion">Aquí se cargará dinámicamente el contenido de la tarea, ejercicio o proyecto, o un iframe con el documento.</p>
         <button formmethod="dialog" onclick="document.getElementById('modal-preview').close()">Cerrar Preview</button>
     </dialog>
-
-
-    <a href="problema-1.html">PROBLEMA 1</a>
 
 </body>
 </html>
