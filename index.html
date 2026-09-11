@@ -7,7 +7,6 @@
 </head>
 <body>
 
-    <!-- Menú de Navegación Centrado -->
     <header style="text-align: center; padding: 20px 0;">
         <nav>
             <ul style="display: flex; justify-content: center; gap: 30px; list-style: none; padding: 0; margin: 0;">
@@ -21,13 +20,11 @@
 
     <main style="padding: 0 20px; max-width: 1200px; margin: 0 auto;">
 
-        <!-- 1. SECCIÓN DE EJERCICIOS -->
         <section id="ejercicios" style="margin-bottom: 60px;">
             <h2>Ejercicios</h2>
             <p>Prácticas cortas y despliegues de prueba.</p>
             
             <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <!-- Recuadro clicable -->
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
                     <h3>Ejercicio 1</h3>
                     <p>Pendiente.</p>
@@ -44,8 +41,6 @@
 
         <hr style="margin: 40px 0;">
 
-        <!-- 2. SECCIÓN DE TAREAS -->
-
         <section id="tareas" style="margin-bottom: 60px;">
             <h2>Tareas</h2>
             <p>Entregables y documentación estructurada.</p>
@@ -54,9 +49,11 @@
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
                     <h3>Tarea 1</h3>
                     <p>Pendiente.</p>
-                    <button>Ver Detalles</button>
+                    <a href="tarea-1.html">
+                        <button>Ver Detalles</button>
+                    </a>
                 </article>
-
+    
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
                     <h3>Tarea 2: Estadísticas básicas en Python</h3>
                     <p>Función propia para calcular media, mínimo y máximo de una lista de números, y filtrado de valores por encima del promedio.</p>
@@ -68,7 +65,9 @@
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
                     <h3>Tarea 3: </h3>
                     <p>Pendiente.</p>
-                    <button>Ver Detalles</button>
+                    <a href="tarea-3.html">
+                        <button>Ver Detalles</button>
+                    </a>
                 </article>
                 
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
@@ -82,7 +81,9 @@
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
                     <h3>Tarea 5</h3>
                     <p>Pendiente.</p>
-                    <button>Ver Detalles</button>
+                    <a href="tarea-5.html">
+                        <button>Ver Detalles</button>
+                    </a>
                 </article>
                 
                 <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
@@ -113,18 +114,15 @@
 
         <hr style="margin: 40px 0;">
 
-        <!-- 3. SECCIÓN DE CERTIFICADOS (Galería de imágenes) -->
         <section id="certificados" style="margin-bottom: 60px;">
             <h2>Certificaciones</h2>
             <p>Insignias y comprobantes de finalización.</p>
 
             <div class="galeria-imagenes" style="display: flex; gap: 30px; flex-wrap: wrap; text-align: center;">
-                <!-- Certificado 1: pendiente agregar imagen y enlace oficial -->
                 <article class="item-galeria">
                     <h4>AWS Certified Cloud Practitioner</h4>
                 </article>
 
-                <!-- Certificado 2: pendiente agregar imagen y enlace oficial -->
                 <article class="item-galeria">
                     <h4>AWS Certified AI Practitioner</h4>
                 </article>
@@ -133,7 +131,6 @@
 
         <hr style="margin: 40px 0;">
 
-        <!-- 4. SECCIÓN DE PROYECTOS -->
         <section id="proyectos" style="margin-bottom: 60px;">
             <h2>Proyectos</h2>
             <p>Implementaciones completas y arquitecturas.</p>
@@ -155,17 +152,13 @@
 
     </main>
 
-    <!-- VENTANA EMERGENTE (Modal nativo de HTML5 para los Previews) -->
-    <!-- Este bloque permanece oculto hasta que se active con JavaScript más adelante -->
     <dialog id="modal-preview" style="padding: 30px; border-radius: 8px; border: 1px solid #aaa; max-width: 600px;">
         <h3 id="modal-titulo">Título del Preview</h3>
         <p id="modal-descripcion">Aquí se cargará dinámicamente el contenido de la tarea, ejercicio o proyecto, o un iframe con el documento.</p>
         <button formmethod="dialog" onclick="document.getElementById('modal-preview').close()">Cerrar Preview</button>
     </dialog>
 
-    <a href="tarea-1.html">TAREA 5</a>
-    <a href="tarea-3.html">TAREA 5</a>
-    <a href="tarea-5.html">TAREA 5</a>
+
     <a href="problema-1.html">PROBLEMA 1</a>
 
 </body>
