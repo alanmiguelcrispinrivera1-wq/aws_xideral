@@ -50,6 +50,6 @@ Es un valor estadístico perteneciente a los cuartiles que divide un conjunto de
 cuatro partes iguales, de modo que el 75% (tercer cuartil) de los datos se encuentran por debajo de este valor y el
 25% por encima.
 
-## Método max
+## Método `max()`
 max es el valor máximo absoluto dentro de la serie numérica, que define el límite superior del conjunto de datos.
 Básicamente, es la función que busca el mayor valor observado.
