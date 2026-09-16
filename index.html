@@ -1,198 +1,523 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio SPA | Alan Miguel Crispin Rivera</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan Crispín · Portafolio Cloud & Data</title>
+<meta name="description" content="Portafolio de Alan Miguel Crispín Rivera: ejercicios, tareas, certificaciones y proyectos en Cloud, Data Engineering y AWS.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%81%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10151c;
+    --ink-soft:#1b2330;
+    --sky:#eaf1fb;
+    --paper:#fbfaf7;
+    --amber:#f2a93b;
+    --mint:#3fbf95;
+    --coral:#ff6b5b;
+    --line:#dfe3ea;
+    --text-muted:#5b6472;
+    --radius:14px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    line-height:1.15;
+    margin:0;
+  }
+
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+
+  .skip-link{
+    position:absolute;left:-999px;top:0;
+    background:var(--amber);color:var(--ink);
+    padding:10px 16px;border-radius:0 0 8px 0;
+    font-weight:600;z-index:200;
+  }
+  .skip-link:focus{left:0;}
+
+  :focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(16,21,28,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:1.15rem;color:#fff;
+    letter-spacing:0.01em;
+  }
+  .logo span{color:var(--amber);}
+
+  .nav-toggle{display:none;}
+  .nav-links{
+    display:flex;gap:8px;list-style:none;margin:0;padding:0;
+  }
+  .nav-links a{
+    display:inline-block;color:#cfd6e0;text-decoration:none;
+    font-size:0.94rem;font-weight:500;padding:8px 14px;border-radius:8px;
+    transition:color .15s ease,background .15s ease;
+  }
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08);}
+
+  .hamburger{
+    display:none;width:40px;height:40px;border-radius:8px;
+    border:1px solid rgba(255,255,255,0.18);background:transparent;
+    color:#fff;cursor:pointer;font-size:1.1rem;
+  }
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;
+      flex-direction:column;background:var(--ink);
+      padding:10px 20px 20px;
+      transform:translateY(-8px);
+      opacity:0;pointer-events:none;
+      transition:opacity .18s ease,transform .18s ease;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .nav-toggle:checked ~ .nav-links{
+      opacity:1;transform:translateY(0);pointer-events:auto;
+    }
+    .nav-links a{padding:12px 8px;font-size:1rem;}
+    .hamburger{display:inline-flex;align-items:center;justify-content:center;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--ink);color:#fff;
+    padding:64px 0 56px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;
+  }
+  .eyebrow-free{margin:0 0 18px;color:#9fb0c4;font-size:1rem;max-width:46ch;}
+  .hero h1{
+    font-size:clamp(2.1rem,1.2rem + 3.1vw,3.4rem);
+    font-weight:700;color:#fff;margin-bottom:18px;
+  }
+  .hero p.lede{
+    max-width:52ch;color:#c6cedb;font-size:1.05rem;margin-bottom:30px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;border-radius:10px;padding:12px 22px;
+    font-weight:600;font-size:0.96rem;text-decoration:none;
+    border:1px solid transparent;cursor:pointer;
+    transition:transform .12s ease,background .15s ease,border-color .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--amber);color:var(--ink);}
+  .btn-primary:hover{background:#e0983a;}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.3);}
+  .btn-ghost:hover{border-color:#fff;}
+  .btn-dark{background:var(--ink);color:#fff;}
+  .btn-dark:hover{background:var(--ink-soft);}
+  .btn-disabled{
+    background:transparent;color:#8a93a1;border:1px dashed var(--line);
+    cursor:not-allowed;font-weight:600;
+  }
+
+  .hero-art{width:100%;}
+  .hero-art .codeline{transform-origin:left center;}
+  @media (prefers-reduced-motion:no-preference){
+    .hero-art .codeline{animation:grow .6s ease both;}
+    .hero-art .cloud-shape{animation:fadein .7s ease .3s both;}
+    .hero-art .node{animation:fadein .5s ease both;}
+  }
+  @keyframes grow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ---------- Sections ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:60ch;margin-bottom:38px;}
+  .section-head h2{font-size:clamp(1.55rem,1.1rem + 1.4vw,2.2rem);margin-bottom:10px;}
+  .section-head p{color:var(--text-muted);margin:0;font-size:1.02rem;}
+
+  section#ejercicios{background:var(--paper);}
+  section#tareas{background:var(--sky);}
+  section#certificados{background:var(--paper);}
+  section#proyectos{background:var(--ink);color:#fff;}
+  section#proyectos .section-head p{color:#aab4c2;}
+
+  .grid{
+    display:grid;gap:22px;
+    grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+  }
+
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;display:flex;flex-direction:column;gap:12px;
+    position:relative;
+  }
+  section#proyectos .card{background:var(--ink-soft);border-color:rgba(255,255,255,0.1);}
+
+  .card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .card-num{
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--text-muted);
+  }
+  section#proyectos .card-num{color:#8a93a1;}
+
+  .status-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;
+    padding:3px 9px;border-radius:99px;white-space:nowrap;
+  }
+  .status-done{background:rgba(63,191,149,0.14);color:#1f8f6a;}
+  .status-pending{background:rgba(255,107,91,0.12);color:#c14a3d;}
+  section#proyectos .status-pending{background:rgba(255,107,91,0.18);color:#ff9c8f;}
+
+  .card h3{font-size:1.08rem;font-weight:600;margin-bottom:2px;}
+  section#proyectos .card h3{color:#fff;}
+  .card p.desc{color:var(--text-muted);font-size:0.94rem;margin:0;flex-grow:1;}
+  section#proyectos .card p.desc{color:#c6cedb;}
+
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    background:var(--sky);color:#2b4a6b;padding:3px 8px;border-radius:6px;
+  }
+  section#proyectos .tag{background:rgba(255,255,255,0.08);color:#dbe4f0;}
+
+  .card .btn{align-self:flex-start;margin-top:6px;padding:9px 16px;font-size:0.88rem;}
+
+  /* pending card look */
+  .card.is-pending{border-style:dashed;background:rgba(255,255,255,0.6);}
+  section#proyectos .card.is-pending{background:transparent;border-color:rgba(255,255,255,0.18);}
+
+  /* ---------- Certificados ---------- */
+  .cert-grid{
+    display:grid;gap:18px;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  }
+  .cert{
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;display:flex;align-items:center;gap:14px;
+    text-decoration:none;background:#fff;transition:border-color .15s ease;
+  }
+  a.cert:hover{border-color:var(--amber);}
+  .cert-badge{
+    width:44px;height:44px;flex:none;border-radius:10px;
+    background:linear-gradient(135deg,var(--amber),var(--coral));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;
+  }
+  .cert-name{font-weight:600;font-size:0.96rem;}
+  .cert-status{display:block;color:var(--text-muted);font-size:0.82rem;margin-top:2px;}
+
+  /* ---------- Footer / contacto ---------- */
+  footer{background:var(--ink);color:#c6cedb;padding:56px 0 30px;}
+  footer h2{color:#fff;font-size:clamp(1.4rem,1.1rem + 1vw,2rem);margin-bottom:12px;}
+  footer p.lede{max-width:56ch;color:#aab4c2;margin-bottom:26px;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
+  .social-list{
+    display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0 0 36px;
+  }
+  .social-list a{
+    display:inline-block;border:1px solid rgba(255,255,255,0.16);
+    padding:9px 16px;border-radius:9px;text-decoration:none;color:#e5eaf2;
+    font-size:0.9rem;font-weight:500;transition:border-color .15s ease,background .15s ease;
+  }
+  .social-list a:hover{border-color:var(--amber);background:rgba(255,255,255,0.05);}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+    font-size:0.85rem;color:#8a93a1;
+  }
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{order:-1;max-width:360px;margin:0 auto 8px;}
+  }
+</style>
 </head>
 <body>
 
-    <header style="text-align: center; padding: 20px 0;">
-        <nav>
-            <ul style="display: flex; justify-content: center; gap: 30px; list-style: none; padding: 0; margin: 0;">
-                <li><a href="#ejercicios">Ejercicios - Problemas</a></li>
-                <li><a href="#tareas">Tareas</a></li>
-                <li><a href="#certificados">Certificados</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-            </ul>
-        </nav>
-    </header>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-    <main style="padding: 0 20px; max-width: 1200px; margin: 0 auto;">
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top">AMC<span>.</span>dev</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger" aria-label="Abrir menú">☰</label>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#ejercicios">Ejercicios</a></li>
+        <li><a href="#tareas">Tareas</a></li>
+        <li><a href="#certificados">Certificados</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-        <section id="ejercicios" style="margin-bottom: 60px;">
-            <h2>Ejercicios - Problemas</h2>
-            <p>Prácticas cortas y despliegues de prueba.</p>
-            
-            <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Problema 1</h3>
-                    <p>Pendiente.</p>
-                    <a href="problema-1.html">
-                        <button>Ver Preview</button>
-                    </a>
-                </article>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow-free">Portafolio de práctica · Cloud & Data</p>
+      <h1>Aprendiendo a construir en la nube, un pipeline a la vez.</h1>
+      <p class="lede">
+        Soy Alan Miguel Crispín Rivera, ingeniero en computación por la ESIME&nbsp;IPN
+        y certificado AWS Cloud Practitioner y AWS AI Practitioner. Aquí documento
+        los ejercicios, tareas y proyectos con los que estoy construyendo mi perfil
+        en Cloud y Data Engineering.
+      </p>
+      <div class="cta-row">
+        <a href="#tareas" class="btn btn-primary">Ver tareas</a>
+        <a href="#certificados" class="btn btn-ghost">Certificaciones</a>
+      </div>
+    </div>
 
-            </div>
-        </section>
+    <svg class="hero-art" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de una terminal de código conectada a una nube y nodos de datos">
+      <g class="cloud-shape" transform="translate(280,18) scale(1.25)">
+        <path d="M25,55 C11,55 0,45 0,33 C0,22 9,13 20,12 C23,4 32,0 42,0 C54,0 64,7 66,18 C77,18 85,26 85,35 C85,46 76,55 64,55 Z" fill="var(--sky)" opacity="0.9" stroke="var(--mint)" stroke-width="2"/>
+      </g>
 
-        <hr style="margin: 40px 0;">
+      <rect x="80" y="76" width="300" height="188" rx="12" fill="var(--ink-soft)"/>
+      <rect x="80" y="76" width="300" height="30" rx="12" fill="#232c3a"/>
+      <rect x="80" y="94" width="300" height="12" fill="#232c3a"/>
+      <circle cx="100" cy="91" r="4.5" fill="var(--coral)"/>
+      <circle cx="115" cy="91" r="4.5" fill="var(--amber)"/>
+      <circle cx="130" cy="91" r="4.5" fill="var(--mint)"/>
 
-        <section id="tareas" style="margin-bottom: 60px;">
-            <h2>Tareas</h2>
-            <p>Entregables y documentación estructurada.</p>
+      <rect class="codeline" x="102" y="126" width="220" height="10" rx="5" fill="var(--mint)" opacity="0.75" style="animation-delay:.05s"/>
+      <rect class="codeline" x="102" y="148" width="150" height="10" rx="5" fill="var(--amber)" opacity="0.75" style="animation-delay:.15s"/>
+      <rect class="codeline" x="102" y="170" width="185" height="10" rx="5" fill="#8fa3c2" opacity="0.6" style="animation-delay:.25s"/>
+      <rect class="codeline" x="102" y="192" width="110" height="10" rx="5" fill="var(--coral)" opacity="0.7" style="animation-delay:.35s"/>
+      <rect class="codeline" x="102" y="214" width="160" height="10" rx="5" fill="#8fa3c2" opacity="0.6" style="animation-delay:.45s"/>
 
-            <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 1: Configuración del entorno de trabajo</h3>
-                    <p>Documentación paso a paso de la instalación de WSL, Ubuntu, Docker Engine, zsh, pyenv y Jupyter Notebook para preparar el entorno del curso de AWS Data.</p>
-                    <a href="tarea-1.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
-    
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 2: Estadísticas básicas en Python</h3>
-                    <p>Función propia para calcular media, mínimo y máximo de una lista de números, y filtrado de valores por encima del promedio.</p>
-                    <a href="tarea-2.html">
-                        <button>Ver Detalles</button>
-                    </a>    
-                </article>
+      <line x1="380" y1="200" x2="420" y2="200" stroke="#4a5568" stroke-width="2" stroke-dasharray="4 5"/>
+      <line x1="420" y1="200" x2="420" y2="250" stroke="#4a5568" stroke-width="2" stroke-dasharray="4 5"/>
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 3: Estadística descriptiva con el metodo describe()</h3>
-                    <p>Explicación conceptual de los métodos que genera describe() en Pandas (count, mean, std, min, percentiles, max) y qué mide cada uno estadísticamente.</p>
-                    <a href="tarea-3.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
-                
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 4: Análisis exploratorio con Pandas</h3>
-                    <p>Exploración del dataset del Titanic (vía Kaggle) para obtener estadísticas descriptivas de edad y conteo de pasajeros.</p>
-                    <a href="tarea-4.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
+      <g class="node" style="animation-delay:.5s">
+        <rect x="400" y="255" width="44" height="44" rx="8" fill="var(--amber)" opacity="0.16" stroke="var(--amber)" stroke-width="1.5"/>
+        <line x1="410" y1="270" x2="434" y2="270" stroke="var(--amber)" stroke-width="2"/>
+        <line x1="410" y1="280" x2="434" y2="280" stroke="var(--amber)" stroke-width="2"/>
+      </g>
+      <g class="node" style="animation-delay:.6s">
+        <circle cx="422" cy="150" r="20" fill="var(--mint)" opacity="0.15" stroke="var(--mint)" stroke-width="1.5"/>
+      </g>
+    </svg>
+  </div>
+</section>
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 5: Análisis de Órdenes de Chipotle con NumPy y Pandas</h3>
-                    <p>Exploración del dataset público de pedidos de Chipotle: producto más pedido, número de órdenes, ventas totales, precio promedio por orden e ítems distintos vendidos.</p>
-                    <a href="tarea-5.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
-                
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 6: Visualización de datos con Matplotlib</h3>
-                    <p>Limpieza y análisis del dataset de Spotify 2023 leído desde S3, con gráficas de barras, dispersión, histogramas, pastel, caja y correlación entre variables.</p>
-                    <a href="tarea-6.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
+<main id="contenido">
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 7: Ingesta de datos a S3 (NYC TLC)</h3>
-                    <p>Script de descarga automatizada de los datos de viajes de taxis de Nueva York (yellow, green, fhv, fhvhv) y carga organizada por año/mes en un bucket S3..</p>
-                    <a href="tarea-7.html">
-                        <button>Ver Detalles</button>\
-                    </a>
-                </article>
+  <section id="ejercicios">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Ejercicios y problemas</h2>
+        <p>Prácticas cortas y despliegues de prueba.</p>
+      </div>
+      <div class="grid">
+        <article class="card is-pending">
+          <div class="card-top">
+            <span class="card-num">01</span>
+            <span class="status-tag status-pending">Pendiente</span>
+          </div>
+          <h3>Problema 1</h3>
+          <p class="desc">Contenido en preparación.</p>
+          <span class="btn btn-disabled" aria-disabled="true">Próximamente</span>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 8: Análisis de ventas E-commerce (Olist)</h3>
-                    <p>Integración de múltiples datasets desde S3 (órdenes, clientes, productos, pagos, reseñas) para responder preguntas de negocio: estados con más ventas, ticket promedio, categorías top, métodos de pago y correlación entre tiempo de entrega y calificación.</p>
-                    <a href="tarea-8.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
+  <section id="tareas">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tareas</h2>
+        <p>Entregables del curso de AWS Data, de la configuración del entorno al análisis de datos en S3.</p>
+      </div>
+      <div class="grid">
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 9</h3>
-                    <p>Pendiente</p>
-                    <a href="tarea-9.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
+        <article class="card">
+          <div class="card-top"><span class="card-num">01</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Configuración del entorno de trabajo</h3>
+          <p class="desc">Instalación paso a paso de WSL, Ubuntu, Docker Engine, zsh, pyenv y Jupyter Notebook para preparar el entorno del curso de AWS Data.</p>
+          <div class="tag-row"><span class="tag">Linux</span><span class="tag">Docker</span></div>
+          <a href="tarea-1.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Tarea 10</h3>
-                    <p>Pendiente</p>
-                    <a href="tarea-10.html">
-                        <button>Ver Detalles</button>
-                    </a>
-                </article>
-                
-            </div>
-        </section>
+        <article class="card">
+          <div class="card-top"><span class="card-num">02</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Estadísticas básicas en Python</h3>
+          <p class="desc">Función propia para calcular media, mínimo y máximo de una lista de números, y filtrado de valores por encima del promedio.</p>
+          <div class="tag-row"><span class="tag">Python</span></div>
+          <a href="tarea-2.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-        <hr style="margin: 40px 0;">
+        <article class="card">
+          <div class="card-top"><span class="card-num">03</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Estadística descriptiva con describe()</h3>
+          <p class="desc">Explicación conceptual de los métodos que genera describe() en Pandas (count, mean, std, min, percentiles, max) y qué mide cada uno.</p>
+          <div class="tag-row"><span class="tag">Pandas</span><span class="tag">Estadística</span></div>
+          <a href="tarea-3.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-        <section id="certificados" style="margin-bottom: 60px;">
-            <h2>Certificaciones</h2>
-            <p>Insignias y comprobantes de finalización.</p>
+        <article class="card">
+          <div class="card-top"><span class="card-num">04</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Análisis exploratorio con Pandas</h3>
+          <p class="desc">Exploración del dataset del Titanic (vía Kaggle) para obtener estadísticas descriptivas de edad y conteo de pasajeros.</p>
+          <div class="tag-row"><span class="tag">Pandas</span><span class="tag">EDA</span></div>
+          <a href="tarea-4.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-            <div class="galeria-imagenes" style="display: flex; gap: 30px; flex-wrap: wrap; text-align: center;">
-                <article class="item-galeria">
-                    <a href="">
-                    <h4>AWS Well-Architected Foundations</h4>
-                    </a>
-                </article>
+        <article class="card">
+          <div class="card-top"><span class="card-num">05</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Análisis de órdenes de Chipotle</h3>
+          <p class="desc">Exploración del dataset público de pedidos de Chipotle: producto más pedido, número de órdenes, ventas totales, precio promedio por orden e ítems distintos vendidos.</p>
+          <div class="tag-row"><span class="tag">NumPy</span><span class="tag">Pandas</span></div>
+          <a href="tarea-5.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-                <article class="item-galeria">
-                    <a href="certificados-pdf/Certificado - Data Engineering on AWS.pdf">
-                    <h4>Data Engineering on AWS</h4>
-                    </a>
-                </article>
+        <article class="card">
+          <div class="card-top"><span class="card-num">06</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Visualización de datos con Matplotlib</h3>
+          <p class="desc">Limpieza y análisis del dataset de Spotify 2023 leído desde S3, con gráficas de barras, dispersión, histogramas, pastel, caja y correlación entre variables.</p>
+          <div class="tag-row"><span class="tag">Matplotlib</span><span class="tag">S3</span></div>
+          <a href="tarea-6.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-                <article class="item-galeria">
-                    <a href="certificados-pdf/Certificado - Getting into the Serverless Mindset.pdf">
-                    <h4>Getting into the Serverless Mindset</h4>
-                    </a>
-                </article>
+        <article class="card">
+          <div class="card-top"><span class="card-num">07</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Ingesta de datos a S3 (NYC TLC)</h3>
+          <p class="desc">Script de descarga automatizada de los datos de viajes de taxis de Nueva York (yellow, green, fhv, fhvhv) y carga organizada por año/mes en un bucket S3.</p>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">S3</span></div>
+          <a href="tarea-7.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-                <article class="item-galeria">
-                    <a href="">
-                    <h4>AWS Certified AI Practitioner</h4>
-                    </a>
-                </article>
+        <article class="card">
+          <div class="card-top"><span class="card-num">08</span><span class="status-tag status-done">Completa</span></div>
+          <h3>Análisis de ventas e-commerce (Olist)</h3>
+          <p class="desc">Integración de múltiples datasets desde S3 (órdenes, clientes, productos, pagos, reseñas) para responder preguntas de negocio: estados con más ventas, ticket promedio, categorías top, métodos de pago y correlación entre entrega y calificación.</p>
+          <div class="tag-row"><span class="tag">Pandas</span><span class="tag">S3</span></div>
+          <a href="tarea-8.html" class="btn btn-dark">Ver detalles</a>
+        </article>
 
-                <article class="item-galeria">
-                    <a href="">
-                    <h4>AWS Certified Cloud Practitioner</h4>
-                    </a>
-                </article>
+        <article class="card is-pending">
+          <div class="card-top"><span class="card-num">09</span><span class="status-tag status-pending">Pendiente</span></div>
+          <h3>Tarea 9</h3>
+          <p class="desc">Contenido en preparación.</p>
+          <span class="btn btn-disabled" aria-disabled="true">Próximamente</span>
+        </article>
 
-                <article class="item-galeria">
-                    <a href="">
-                    <h4>AWS Certified AI Practitioner</h4>
-                    </a>    
-                </article>
-            </div>
-        </section>
+        <article class="card is-pending">
+          <div class="card-top"><span class="card-num">10</span><span class="status-tag status-pending">Pendiente</span></div>
+          <h3>Tarea 10</h3>
+          <p class="desc">Contenido en preparación.</p>
+          <span class="btn btn-disabled" aria-disabled="true">Próximamente</span>
+        </article>
 
-        <hr style="margin: 40px 0;">
+      </div>
+    </div>
+  </section>
 
-        <section id="proyectos" style="margin-bottom: 60px;">
-            <h2>Proyectos</h2>
-            <p>Implementaciones completas y arquitecturas.</p>
+  <section id="certificados">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Certificaciones</h2>
+        <p>Insignias y comprobantes de finalización.</p>
+      </div>
+      <div class="cert-grid">
 
-            <div class="grid-tarjetas" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <article style="border: 1px solid #ccc; padding: 20px; width: 300px; cursor: pointer;">
-                    <h3>Proyecto 1</h3>
-                    <p>En proceso.</p>
-                    <button>Ver Proyecto</button>
-                </article>
-            </div>
-        </section>
+        <div class="cert" style="opacity:.7;">
+          <div class="cert-badge">AW</div>
+          <div><span class="cert-name">AWS Well-Architected Foundations</span><span class="cert-status">Constancia próximamente</span></div>
+        </div>
 
-    </main>
+        <a class="cert" href="certificados-pdf/Certificado - Data Engineering on AWS.pdf" target="_blank" rel="noopener">
+          <div class="cert-badge">DE</div>
+          <div><span class="cert-name">Data Engineering on AWS</span><span class="cert-status">Ver PDF</span></div>
+        </a>
 
-    <dialog id="modal-preview" style="padding: 30px; border-radius: 8px; border: 1px solid #aaa; max-width: 600px;">
-        <h3 id="modal-titulo">Título del Preview</h3>
-        <p id="modal-descripcion">Aquí se cargará dinámicamente el contenido de la tarea, ejercicio o proyecto, o un iframe con el documento.</p>
-        <button formmethod="dialog" onclick="document.getElementById('modal-preview').close()">Cerrar Preview</button>
-    </dialog>
+        <a class="cert" href="certificados-pdf/Certificado - Getting into the Serverless Mindset.pdf" target="_blank" rel="noopener">
+          <div class="cert-badge">SM</div>
+          <div><span class="cert-name">Getting into the Serverless Mindset</span><span class="cert-status">Ver PDF</span></div>
+        </a>
+
+        <div class="cert" style="opacity:.7;">
+          <div class="cert-badge">AI</div>
+          <div><span class="cert-name">AWS Certified AI Practitioner</span><span class="cert-status">Constancia próximamente</span></div>
+        </div>
+
+        <div class="cert" style="opacity:.7;">
+          <div class="cert-badge">CP</div>
+          <div><span class="cert-name">AWS Certified Cloud Practitioner</span><span class="cert-status">Constancia próximamente</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Proyectos</h2>
+        <p>Implementaciones completas y arquitecturas.</p>
+      </div>
+      <div class="grid">
+        <article class="card is-pending">
+          <div class="card-top"><span class="card-num">01</span><span class="status-tag status-pending">En proceso</span></div>
+          <h3>Proyecto 1</h3>
+          <p class="desc">Arquitectura y detalles en construcción.</p>
+          <span class="btn btn-disabled" aria-disabled="true">En proceso</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <h2>Hablemos.</h2>
+    <p class="lede">
+      Estoy buscando mi primer rol junior en Cloud, DevSecOps o desarrollo backend en Ciudad de México.
+      Si mi perfil encaja con una vacante o quieres revisar mi trabajo con más detalle, escríbeme.
+    </p>
+    <ul class="social-list">
+      <li><a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a></li>
+      <li><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <div class="foot-bottom">
+      <span>Alan Miguel Crispín Rivera · Ciudad de México</span>
+      <span>Portafolio construido con HTML y CSS.</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
