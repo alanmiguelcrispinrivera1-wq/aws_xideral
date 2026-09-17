@@ -1,0 +1,12 @@
+{
+  "Records": [
+    {
+      "eventSource": "aws:s3",
+      "eventName": "ObjectCreated:Put",
+      "s3": {
+        "bucket": { "name": "xideralaws-curso-proyecto-alan" },
+        "object": { "key": "raw_data/2024/01/yellow_tripdata_2024-01.parquet" }
+      }
+    }
+  ]
+}
