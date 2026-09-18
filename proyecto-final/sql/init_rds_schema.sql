@@ -1,6 +1,6 @@
--- Esquema de RDS para el Proyecto Integrador (Alan Miguel Crispín Rivera)
--- Ejecutar una sola vez en DBeaver, conectado a la instancia RDS del profesor.
--- Crea la base de datos propia del proyecto y la tabla de metadata que usa
+-- Esquema de RDS para mi Proyecto Integrador
+-- Ejecutar una sola vez en DBeaver, conectado a la instancia RDS a la que se nos dio acceso.
+-- Creamos la base de datos propia del proyecto y la tabla de metadata que usa
 -- el notebook 06 (06_sync_metadatos_rds.ipynb) para sincronizar los JSON
 -- que genera la Lambda y el backfill.
 --
