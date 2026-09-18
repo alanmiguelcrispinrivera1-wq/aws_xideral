@@ -27,3 +27,12 @@ CREATE TABLE IF NOT EXISTS pipeline_metadata (
     registered_at DATETIME,
     UNIQUE KEY uq_s3_key (s3_key)
 );
+
+CREATE TABLE IF NOT EXISTS pipeline_runs (
+    run_id INT AUTO_INCREMENT PRIMARY KEY,
+    notebook_name VARCHAR(100) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    started_at DATETIME,
+    finished_at DATETIME,
+    error_message TEXT
+);
