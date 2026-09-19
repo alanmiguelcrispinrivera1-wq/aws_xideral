@@ -11,8 +11,8 @@ interactivo, usando una arquitectura medallón (Bronze → Silver → Gold) en A
 
 ## Arquitectura
 
-> 📌 Diagrama completo en `docs/architecture.png` (Excalidraw) — ver sección
-> [Diagrama de arquitectura](#diagrama-de-arquitectura) más abajo.
+> 📌 Diagrama completo en `docs/architecture.png` (draw.io) 
+![Diagrama de arquitectura](docs/architecture.png)
 
 ```
 NYC TLC (datos públicos)
