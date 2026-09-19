@@ -5,14 +5,14 @@ construido como Proyecto Integrador de la capacitacion de Xideral en Ingenieria 
 publica la TLC (`yellow`, `green`, `fhv`, `fhvhv`), desde ingesta cruda hasta un dashboard
 interactivo, usando una arquitectura medallón (Bronze → Silver → Gold) en AWS.
 
-**Autor:** Alan Miguel Crispín Rivera
+**Autor:** Alan Miguel Crispin Rivera
 
 ---
 
 ## Arquitectura
 
 > 📌 Diagrama completo en `docs/architecture.png` (draw.io) 
-![Diagrama de arquitectura](docs/architecture.png)
+![Diagrama de arquitectura](docs/architecture-diagram.png)
 
 ```
 NYC TLC (datos públicos)
